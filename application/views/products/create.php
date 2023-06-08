@@ -81,6 +81,18 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="empty_unit_price">Empty Unit Price</label>
+                  <input type="text" class="form-control" id="empty_unit_price" name="empty_unit_price" placeholder="Enter empty unit price" autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                  <label for="carton_qty">Qty Per Carton</label>
+                  <input type="text" class="form-control" id="carton_qty" name="carton_qty" placeholder="Enter Qty Per Carton" autocomplete="off" />
+                </div>
+
+
+
+                <div class="form-group">
                   <label for="description">Description</label>
                   <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter 
                   description" autocomplete="off">
@@ -185,6 +197,7 @@
         layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
+    
 
   });
 </script>

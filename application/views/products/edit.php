@@ -80,6 +80,21 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="empties">Empties</label>
+                  <input type="text" class="form-control" id="empties" name="empties" placeholder="Enter empties" value="<?php echo $product_data['empties']; ?>" autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                  <label for="empty_unit_price">Empty Unit Price</label>
+                  <input type="text" class="form-control" id="empty_unit_price" name="empty_unit_price" placeholder="Enter empty_unit_price" value="<?php echo $product_data['empty_unit_price']; ?>" autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                  <label for="carton_qty">Qty Per Carton</label>
+                  <input type="text" class="form-control" id="carton_qty" name="carton_qty" placeholder="Enter carton_qty" value="<?php echo $product_data['carton_qty']; ?>" autocomplete="off" />
+                </div>
+
+                <div class="form-group">
                   <label for="description">Description</label>
                   <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter 
                   description" autocomplete="off">

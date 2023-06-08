@@ -73,6 +73,8 @@ class Products extends Admin_Controller
 				$value['name'],
 				$value['price'],
                 $value['empties'],
+                $value['empty_unit_price'],
+                $value['carton_qty'],
                 $value['qty'] . ' ' . $qty_status,
                 $store_data['name'],
 				$availability,
@@ -98,7 +100,9 @@ class Products extends Admin_Controller
 		$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
-        $this->form_validation->set_rules('empties', 'empties', 'trim|required');
+        $this->form_validation->set_rules('empties', 'empties', 'trim');
+        $this->form_validation->set_rules('empty_unit_price', 'empty_unit_price', 'trim');
+        $this->form_validation->set_rules('carton_qty', 'carton_qty', 'trim');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
 		$this->form_validation->set_rules('availability', 'Availability', 'trim|required');
 		
@@ -113,6 +117,8 @@ class Products extends Admin_Controller
         		'price' => $this->input->post('price'),
         		'qty' => $this->input->post('qty'),
                 'empties' => $this->input->post('empties'),
+                'empty_unit_price' => $this->input->post('empty_unit_price'),
+                'carton_qty' => $this->input->post('carton_qty'),
         		'image' => $upload_image,
         		'description' => $this->input->post('description'),
         		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
@@ -207,7 +213,9 @@ class Products extends Admin_Controller
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
-        $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
+        $this->form_validation->set_rules('empties', 'Empties', 'trim');
+        $this->form_validation->set_rules('empty_unit_price', 'empty_unit_price', 'trim');
+        $this->form_validation->set_rules('carton_qty', 'carton_qty', 'trim');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
         $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
 
@@ -219,6 +227,9 @@ class Products extends Admin_Controller
                 'sku' => $this->input->post('sku'),
                 'price' => $this->input->post('price'),
                 'qty' => $this->input->post('qty'),
+                'empties' => $this->input->post('empties'),
+                'empty_unit_price' => $this->input->post('empty_unit_price'),
+                'carton_qty' => $this->input->post('carton_qty'),
                 'description' => $this->input->post('description'),
                 'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
                 'brand_id' => json_encode($this->input->post('brands')),

@@ -65,6 +65,7 @@ class Model_orders extends CI_Model
     			'order_id' => $order_id,
     			'product_id' => $this->input->post('product')[$x],
     			'qty' => $this->input->post('qty')[$x],
+				'empty_qty' => $this->input->post('empty_qty')[$x],
     			'rate' => $this->input->post('rate_value')[$x],
     			'amount' => $this->input->post('amount_value')[$x],
     		);
@@ -74,8 +75,12 @@ class Model_orders extends CI_Model
     		// now decrease the stock from the product
     		$product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
     		$qty = (int) $product_data['qty'] - (int) $this->input->post('qty')[$x];
+			$empty_qty = (int) $product_data['empties'] - (int) $this->input->post('empty_qty')[$x];
 
-    		$update_product = array('qty' => $qty);
+    		$update_product = array(
+				'qty' => $qty,
+				'empties' => $empty_qty,
+			);
 
 
     		$this->model_products->update($update_product, $this->input->post('product')[$x]);
@@ -144,6 +149,7 @@ class Model_orders extends CI_Model
 	    			'order_id' => $id,
 	    			'product_id' => $this->input->post('product')[$x],
 	    			'qty' => $this->input->post('qty')[$x],
+					'empty_qty' => $this->input->post('empty_qty')[$x],
 	    			'rate' => $this->input->post('rate_value')[$x],
 	    			'amount' => $this->input->post('amount_value')[$x],
 	    		);
@@ -152,8 +158,13 @@ class Model_orders extends CI_Model
 	    		// now decrease the stock from the product
 	    		$product_data = $this->model_products->getProductData($this->input->post('product')[$x]);
 	    		$qty = (int) $product_data['qty'] - (int) $this->input->post('qty')[$x];
+				$empty_qty = (int) $product_data['empties'] - (int) $this->input->post('empty_qty')[$x];
 
-	    		$update_product = array('qty' => $qty);
+
+	    		$update_product = array(
+					'qty' => $qty,
+					'empties' => $empty_qty,
+				);
 	    		$this->model_products->update($update_product, $this->input->post('product')[$x]);
 	    	}
 

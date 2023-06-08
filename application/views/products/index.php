@@ -52,6 +52,9 @@
                 <th>SKU</th>
                 <th>Product Name</th>
                 <th>Price</th>
+                <th>Empties</th>
+                <th>Empty Unit Price</th>
+                <th>Qty Per Carton</th>
                 <th>Qty</th>
                 <th>Store</th>
                 <th>Availability</th>
